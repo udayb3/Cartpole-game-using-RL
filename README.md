@@ -19,7 +19,7 @@
 
 - #### First, We used Q learning to train the model and test it using the Q-table values. The results were that we could make the pole stay in position for duration of 100 seconds. Here is the video which shows 58 steps taken by the CartPole.
 
-https://raw.githubusercontent.com/udayb3/Cartpole-game-using-RL/master/video/Game_9_step_58.mp4
+https://user-images.githubusercontent.com/udayb3/Cartpole-game-using-RL/master/video/Game_9_step_58.mp4
 
 
 ### Environment
