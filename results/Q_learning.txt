@@ -1,0 +1,52 @@
+----------Test Results----------
+Learning rate=0.001, Epsilon=1
+The Agent took 10 steps before terminating.
+The Agent took 9 steps before terminating.
+The Agent took 7 steps before terminating.
+The Agent took 22 steps before terminating.
+The Agent took 7 steps before terminating.
+The Agent took 11 steps before terminating.
+The Agent took 11 steps before terminating.
+The Agent took 10 steps before terminating.
+The Agent took 10 steps before terminating.
+The Agent took 18 steps before terminating.
+
+----------Test Results----------
+Learning rate=0.001, Epsilon=1
+The Agent took 10 steps before terminating.
+The Agent took 28 steps before terminating.
+The Agent took 11 steps before terminating.
+The Agent took 24 steps before terminating.
+The Agent took 21 steps before terminating.
+The Agent took 11 steps before terminating.
+The Agent took 10 steps before terminating.
+The Agent took 32 steps before terminating.
+The Agent took 10 steps before terminating.
+The Agent took 10 steps before terminating.
+
+----------Test Results----------
+Learning rate=0.001, Epsilon=1
+The Agent took 30 steps before terminating.
+The Agent took 39 steps before terminating.
+The Agent took 39 steps before terminating.
+The Agent took 12 steps before terminating.
+The Agent took 44 steps before terminating.
+The Agent took 36 steps before terminating.
+The Agent took 38 steps before terminating.
+The Agent took 40 steps before terminating.
+The Agent took 58 steps before terminating.
+The Agent took 37 steps before terminating.
+
+----------Test Results----------
+Learning rate=0.001, Epsilon=1
+The Agent took 46 steps before terminating.
+The Agent took 13 steps before terminating.
+The Agent took 28 steps before terminating.
+The Agent took 32 steps before terminating.
+The Agent took 11 steps before terminating.
+The Agent took 13 steps before terminating.
+The Agent took 28 steps before terminating.
+The Agent took 26 steps before terminating.
+The Agent took 33 steps before terminating.
+The Agent took 12 steps before terminating.
+

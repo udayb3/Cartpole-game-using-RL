@@ -3,18 +3,6 @@ import imageio as img
 from time import sleep
 import numpy as np
 
-# Defining the Parameters and Initialising the Q-table
-Learning_rate= 0.001
-Discount= 0.98
-Total_episodes= 50000
-range_v= 50000
-
-# Defining epsilon
-Epsilon = 1
-start_decay = 1
-end_decay = Total_episodes / 5
-Eps_decay_value = Epsilon / (end_decay - start_decay)
-
 class Q_learning():
   
   def __init__(self, LR, discount, num_episodes, range_velocity, epsilon, ep_decay):
@@ -43,7 +31,7 @@ class Q_learning():
     self.result_train= []; self.result_test= []
     
     # Initializing the frames for the Imageio module
-    self.frames= []
+    self.frames_test= {}; self.test_steps= {}; self.test_data= {}
 
   def Limit(self, value, cmp):
     
@@ -95,7 +83,7 @@ class Q_learning():
         
       self.reward_train.append( reward_ep )
 
-      print(f"Episode number: {ep + 1}, Steps: {reward_ep}, Epsilon value: {temp_epsilon}", end="\n" )
+      # print(f"Episode number: {ep + 1}, Steps: {reward_ep}, Epsilon value: {temp_epsilon}", end="\n" )
       ep_result= {'Episode number': ep + 1, 'Steps': reward_ep, 'Epsilon value': temp_epsilon}
       self.result_train.append( ep_result )
 
@@ -104,16 +92,86 @@ class Q_learning():
         temp_epsilon -= self.ep_decay
       else:
         self.epsilon= 0
+
+  def test(self, interations):
+    
+    for i in range(interations):
+
+      obs, info_= self.env.reset()
+      discrete_state= self.Discretize(obs, self.obs_range)
+      trun= False; term= False
+
+      self.frames_test[i]= []
+      for step in range(400):
+
+        self.frames_test[i].append( self.env.render() )
+
+        # Getting the action and showing the new states
+        action= np.argmax( self.Q_tb[ discrete_state ] ); 
+        new_state, reward, term, trun, info_= self.env.step( action )
+
+        if term or trun:
+          print(f"The Agent took {step} steps before terminating.")
+          self.test_steps[i]= step
+          self.test_data[i]= f"The Agent took {step} steps before terminating."
+          break
+
+        discrete_state= self.Discretize( new_state, self.obs_range )
+
       
   def stats_train(self):
     
     # Print out results
+    print("Training results are as follows: ",end="\n\n")
     print(f"Number of episodes: { len( self.reward_train ) }")
     print(f"Max steps per episode: { np.max(self.reward_train  ) }")
     print(f"Avg steps per episode: { np.mean(self.reward_train ) }")
-    print(f"Min steps per episode: { np.min(self.reward_train  ) }")
+    print(f"Min steps per episode: { np.min(self.reward_train  ) }",end="\n\n")
+
+  def Save_video(self, rel_path:str, test_it_index: list ):
+    """
+    _Summary_:
+
+    """
+    path= rel_path
+    for i in test_it_index:
+
+      path += f"/Game_{i}_step_{self.test_steps[i-1]}.mp4"
+      img.mimsave( path, self.frames_test[i-1] )
+      path= rel_path
+
+# Defining the Parameters and Initialising the Q-table
+Learning_rate= 0.001
+Discount= 0.98
+Total_episodes= 30000
+range_v= 50000
+
+# Defining epsilon
+Epsilon = 1
+start_decay = 1
+end_decay = Total_episodes / 3
+Eps_decay_value = Epsilon / (end_decay - start_decay)
 
 
+# Initializing the Agent and training the agent with 
 Agent= Q_learning(Learning_rate, Discount, Total_episodes, range_v, Epsilon, Eps_decay_value)
 Agent.training()
 Agent.stats_train()
+
+# Uncomment below line to print the respective episodes numbers and their stats 
+# print( Agent.stats_train )
+
+# Testing the agent
+Agent.test( interations= 10 )
+
+""" Uncomment the below lines to add the result to your text life."""
+# with open('../results/Q_learning.txt', mode='a') as fil:
+  # 
+  # fil.write(f"----------Test Results----------\nLearning rate={Learning_rate}, Epsilon={Epsilon}\n")
+  # for i in range( len( Agent.test_data ) ):
+    # fil.write(f"{Agent.test_data[i]}\n")
+  # fil.write("\n")
+
+""" Uncomment the below lines to add the video path. """
+# Path= "../video"
+# Agent.Save_video( Path, test_it_index= [1,2,3,4,5,6,7,8,9,10] )
