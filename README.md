@@ -7,14 +7,24 @@
 <details>
 <summary>Index</summary>
 
-- [Set-up](#set-up)
-- [Description](#description)
+- [Overview](#overview)
+- [Set-up and Files information](#setup)
 - [Environment](#environment)
+- [Q-Learning Algorithm](#algorithm)
+- [Final Results](#results)
 - [References](#references)
 </details>
 <!-- AUTO-GENERATED-CONTENT:END -->
 
-### Set-up
+### Overview
+
+- #### We have used [Gymnasium](https://gymnasium.farama.org/) which is a maintained fork of OpenAI's gym. This was done by understanding the environment and actions which were provided by the library.
+
+- #### We used Q learning to train the model and test it using the Q-table values. The results were that we could make the pole stay in position for duration of 100 seconds. Here is the video which shows 58 steps taken by the CartPole.
+
+  https://github.com/udayb3/Cartpole-game-using-RL/assets/148479732/9ec96e5a-9c38-4350-8f93-bd2c1a7ce10f
+
+### Setup
 
 - #### All the requirements for the code to run are provided in the `requirements.txt` file.
 
@@ -23,14 +33,12 @@
 
 - #### You can run the `Q_learning_based` file in the python_files directory. Modify the code depending upon the episodes number, video path, result file path, etc.
 
-### Description
-
-- #### We have used [Gymnasium](https://gymnasium.farama.org/) which is a maintained fork of OpenAI's gym. This was done by understanding the environment and actions which were provided by the library.
-
-- #### First, We used Q learning to train the model and test it using the Q-table values. The results were that we could make the pole stay in position for duration of 100 seconds. Here is the video which shows 58 steps taken by the CartPole.
-
-  https://github.com/udayb3/Cartpole-game-using-RL/assets/148479732/9ec96e5a-9c38-4350-8f93-bd2c1a7ce10f
-
+- #### File descriptions:
+  - _Python-Files_:  It consists of `Q_learning_based.py` file for the Q_learning algorithm.
+  -  _Collab_Notebooks_: It consists of `Q_learning_based.ipynb` file for running in collab without any dependencies. All the dependencies are already set-up in the Notebook.
+  - _results_: It consists of the `Q\_learning.txt` file which contain the result of the Q_learning algorithm.
+  - _video_: It consists of the video results obtained from the Q_learning algorithm with the help of `Imageio` library.
+  - requirements.txt consists of the libraries required to run the `Q_learning` file.
 
 ### Environment
 
@@ -57,4 +65,37 @@
 
 ### Algorithm
 
+- #### We have used Q-Learning algorithm for the task with the $ \epsilon $ Exploration policy.
+
+- #### For this, we created a class for the Q_learning algorithm. This consists of the methods for _training_, _testing_, _Saving video_, _Exploration Policy_, _Discretizing function_.
+
+- #### When we initialize the Q_learning class, it setups the Environment from _Gymnasium_ and initializes any additional data structure required for frames, statistics related to Environment.
+
+- #### The major methods used are:
+
+  - `Discretize`: This is a function which is used to discretize the observation space provided and remove the convert the velocity and angular velocity to a lower speed since their range included infinity.
+
+  - `Training`: This is a method which consists of training the agent using the Q-learning algorithm. The exact formula used for the Q-learning is as follows:
+    $$ Q(s,a) = Q(s,a) + \alpha( reward + \gamma Q(s',a') - Q(s,a) ) $$
+
+  - `Stats_train`: This method prints the Statistics obtained after training the agent.
+
+  - `Testing`: This method test the Agent on the different starting states. It also takes the hyperparameter which signifies the number of times of testing. 
+
+  - `Save_video`: This saves the video in the directory specified with respect to the local path.
+
+### Results
+
+- #### Finally, the agent could stay balanced upto 60-80 steps.
+
+- #### Some of the selected videos are shown here. Others can be seen in the video directory.
+
+- #### 46 Steps
+
+- #### 44 Steps
+
 ### References
+
+- #### [Gymnasium](https://gymnasium.farama.org/)
+- #### [Imageio](https://imageio.readthedocs.io/en/stable/)
+- #### [Matplotlib](https://matplotlib.org/stable/index.html)
