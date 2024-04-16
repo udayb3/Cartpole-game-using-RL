@@ -13,6 +13,7 @@
 - [Q-Learning Algorithm](#algorithm)
 - [Final Results](#results)
 - [References](#references)
+- [License](#license)
 </details>
 <!-- AUTO-GENERATED-CONTENT:END -->
 
@@ -103,3 +104,6 @@ https://github.com/udayb3/Cartpole-game-using-RL/assets/148479732/e9664323-db0c-
 - #### [Gymnasium](https://gymnasium.farama.org/)
 - #### [Imageio](https://imageio.readthedocs.io/en/stable/)
 - #### [Matplotlib](https://matplotlib.org/stable/index.html)
+
+### License
+- ### This project is licensed under © [Uday Bhardwaj](https://github.com/udayb3) and [Vedansh Sharma](https://github.com/Vedanshbvb).
