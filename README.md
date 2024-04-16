@@ -92,7 +92,11 @@
 
 - #### 46 Steps
 
+https://github.com/udayb3/Cartpole-game-using-RL/assets/148479732/b219d3b6-7d61-423d-b2f0-765ddb87ce02
+
 - #### 44 Steps
+
+https://github.com/udayb3/Cartpole-game-using-RL/assets/148479732/e9664323-db0c-4392-9dc0-8055dfcef6c1
 
 ### References
 
