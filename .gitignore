@@ -1,0 +1,9 @@
+# Ignoring the testing directories
+test/**/*
+
+# Ignoring the python virtual environment
+pyvenv/**/*
+venv/**/*
+
+# Ignoring log files
+*/**/*.log
