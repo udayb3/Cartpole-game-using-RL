@@ -62,6 +62,10 @@
   2. Position is not in the region of $\pm2.4 $.
   3. The total number of steps become more than 500 in an episode.
 
+- #### We have diminished the observation space:
+  1. Velocity ( -50000 to +50000 )
+  2. Angular Velocity ( -50000 to +50000 )
+
 - #### The API of `Gymnasium` enabled us to use their methods and the above description of the environment is also explained in the detailed manner [here](https://gymnasium.farama.org/environments/classic_control/cart_pole/).
 
 ### Algorithm
