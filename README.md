@@ -47,9 +47,9 @@
 
 - #### The _Observation Space_ consists of four Continuous eatures:
   1. Position (-0.5 to 0.5)
-  2. Velocity ( -$\inf \; to \; \inf $ )
+  2. Velocity ( -inf to inf )
   3. Angle ( -0.24 to 0.24 )
-  4. Angular Velocity ( -$\inf \; to \; \inf $ )
+  4. Angular Velocity ( -inf to inf )
 
 - #### The _Action Space_ consists of 2 Discrete states:
   1. 0: Pushing the cart to the left.
@@ -58,15 +58,19 @@
 - #### Reward was given everytime whenever a step was taken by the agent.
 
 - #### There were 3 termination conditions for ending an episode
-  1. Pole angle becomes greater than $ \pm12 $ degree.
-  2. Position is not in the region of $\pm2.4 $.
+  1. Pole angle becomes greater than 12 degree.
+  2. Position is not in the region of 2.4 units.
   3. The total number of steps become more than 500 in an episode.
+
+- #### We have diminished the observation space:
+  1. Velocity ( -50000 to +50000 )
+  2. Angular Velocity ( -50000 to +50000 )
 
 - #### The API of `Gymnasium` enabled us to use their methods and the above description of the environment is also explained in the detailed manner [here](https://gymnasium.farama.org/environments/classic_control/cart_pole/).
 
 ### Algorithm
 
-- #### We have used Q-Learning algorithm for the task with the $ \epsilon $ Exploration policy.
+- #### We have used Q-Learning algorithm for the task with the ε-greedy Exploration policy.
 
 - #### For this, we created a class for the Q_learning algorithm. This consists of the methods for _training_, _testing_, _Saving video_, _Exploration Policy_, _Discretizing function_.
 
@@ -77,7 +81,7 @@
   - `Discretize`: This is a function which is used to discretize the observation space provided and remove the convert the velocity and angular velocity to a lower speed since their range included infinity.
 
   - `Training`: This is a method which consists of training the agent using the Q-learning algorithm. The exact formula used for the Q-learning is as follows:
-    $$ Q(s,a) = Q(s,a) + \alpha( reward + \gamma Q(s',a') - Q(s,a) ) $$
+    Q(s,a) = Q(s,a) + α( reward + γ(Q(s',a')) - Q(s,a) )
 
   - `Stats_train`: This method prints the Statistics obtained after training the agent.
 
