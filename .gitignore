@@ -1,0 +1,6 @@
+# ignoring the venv folders
+pyvenv/*
+venv/*
+
+# Ignoring the test folder
+test/
