@@ -65,7 +65,7 @@ class Q_learning():
 
       while(  not (term or trun)):
 
-        # Using epsilong-greedy policy
+        # Using epsilon-greedy policy
         if( np.random.random() < temp_epsilon ):
           action= np.random.randint(0, self.env.action_space.n)
         else:
