@@ -21,7 +21,7 @@
 
 - #### We have used [Gymnasium](https://gymnasium.farama.org/) which is a maintained fork of OpenAI's gym. This was done by understanding the environment and actions which were provided by the library.
 
-- #### We used Q learning to train the model and test it using the Q-table values. The results were that we could make the pole stay in position for duration of 100 seconds. Here is the video which shows 58 steps taken by the CartPole.
+- #### We used Q learning to train the model and test it using the Q-table values. The results were that we could make the pole stay in position for about 60 steps. Here is the video which shows 58 steps taken by the CartPole.
 
   https://github.com/udayb3/Cartpole-game-using-RL/assets/148479732/9ec96e5a-9c38-4350-8f93-bd2c1a7ce10f
 
