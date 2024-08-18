@@ -81,7 +81,7 @@
   - `Discretize`: This is a function which is used to discretize the observation space provided and remove the convert the velocity and angular velocity to a lower speed since their range included infinity.
 
   - `Training`: This is a method which consists of training the agent using the Q-learning algorithm. The exact formula used for the Q-learning is as follows:
-    Q(s,a) = Q(s,a) + α( reward + γmax_{a'}(Q(s',a')) - Q(s,a) )
+    Q(s,a) = Q(s,a) + α( reward + γ(Q(s',a')) - Q(s,a) )
 
   - `Stats_train`: This method prints the Statistics obtained after training the agent.
 
