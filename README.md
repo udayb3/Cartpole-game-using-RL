@@ -45,7 +45,7 @@
 
 - #### `CartPole-v_1` is used for the Reinforcement Learning algorithms.
 
-- #### The _Observation Space_ consists of four Continuous eatures:
+- #### The _Observation Space_ consists of four Continuous features:
   1. Position (-0.5 to 0.5)
   2. Velocity ( -inf to inf )
   3. Angle ( -0.24 to 0.24 )
